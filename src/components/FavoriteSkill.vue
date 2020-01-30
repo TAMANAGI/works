@@ -1,0 +1,89 @@
+<template>
+  <section id="rootFavoriteSkill">
+    <h2 class="titleSection">Favolite skills</h2>
+    <v-container>
+      <v-layout wrap>
+        <v-flex class="rootChart">
+          <h4>2019</h4>
+          <GChart type="PieChart" :data="data2019.chartData" :options="data2019.chartOptions" />
+        </v-flex>
+        <v-flex class="rootChart">
+          <h4>2018</h4>
+          <GChart type="PieChart" :data="data2018.chartData" :options="data2018.chartOptions" />
+        </v-flex>
+        <v-flex class="rootChart">
+          <h4>2017</h4>
+          <GChart type="PieChart" :data="data2017.chartData" :options="data2017.chartOptions" />
+        </v-flex>
+      </v-layout>
+    </v-container>
+  </section>
+</template>
+
+<script>
+  import {
+    GChart
+  } from 'vue-google-charts';
+  
+  export default {
+    namespaced: true,
+    data() {
+      const option = {
+        backgroundColor: "transparent",
+        chartArea: {
+          left: 10,
+          top: 10,
+          width: '100%',
+          height: '100%'
+        },
+        is3D: true,
+      };
+  
+      return {
+        data2019: {
+          chartData: [
+            ['name', 'rate'],
+            ["Vue", 75],
+            ["tensorflow", 15],
+            ["React", 10]
+          ],
+          chartOptions: Object.assign({}, option)
+        },
+        data2018: {
+          chartData: [
+            ['name', 'rate'],
+            ["React", 90],
+            ["Vue", 10]
+          ],
+          chartOptions: Object.assign({}, option)
+        },
+        data2017: {
+          chartData: [
+            ['name', 'rate'],
+            ["React", 70],
+            ["jQuery", 30]
+          ],
+          chartOptions: Object.assign({}, option)
+        }
+      }
+    },
+    components: {
+      GChart
+    },
+  };
+</script>
+
+<style lang="scss" scoped>
+  #rootFavoriteSkill {
+    width: 90vw;
+    margin: auto;
+    position: relative;
+  }
+  
+  .rootChart {
+    width: 33%;
+    @include sp {
+      width: 100%;
+    }
+  }
+</style>
