@@ -1,20 +1,18 @@
 export default { // exportする
   created() {
-    console.log('start! from mixins.'); // 起動後必ずログが出力される
+    // console.log('start! from mixins.');
   },
   data() {
     return {
-      serverPass: 'https://localhost:3000/', // サーバーサイドのパスを定義
+      serverPass: 'https://localhost:3000/',
     };
   },
   methods: {
     logging() {
-      console.log('logging from mixins.');
+      console.log('XXXXXXXX');
     },
   },
   computed: {
-    twoBytwo() {
-      return 2 * 2;
-    },
+
   },
 };

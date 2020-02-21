@@ -2,9 +2,8 @@
   <section id="footer" class="root">
     <div class="contents" :class="[data.type, data.color]">
       <div class="icons">
-        <v-icon class="icon" size="24" @click="alert('test')">mdi-bell-outline</v-icon>
-        <v-icon class="icon" size="24" @click="alert('test')">mdi-account-outline</v-icon>
-        <v-icon class="icon" size="24" @click="alert('test')">mdi-account-outline</v-icon>
+        <v-icon class="icon" size="24" @click="alert('test')">mdi-facebook-box</v-icon>
+        <v-icon class="icon" size="24" @click="alert('test')">mdi-twitter-circle</v-icon>
       </div>
       <p class="title">TAMANAGI from my girl & boy</p>
     </div>
@@ -85,7 +84,7 @@
       display: flex;
       flex-direction: column;
       height: 5rem;
-      padding: .5rem 1rem;
+      padding: .5rem .75rem;
     }
 
     &.float {

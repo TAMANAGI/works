@@ -1,5 +1,5 @@
 <template>
-  <v-content>
+  <v-content class="root" :class="[data.type, data.color]">
     <transition name="view">
       <router-view/>
     </transition>
@@ -7,13 +7,35 @@
 </template>
 
 <script>
+  import {
+    mapState
+  } from 'vuex';
+
   export default {
     name: "tamanagi-container",
-    components: {}
+    components: {},
+    computed: mapState({
+      data: (state) => {
+        const {
+          type,
+          color
+        } = state.common.header;
+        return {
+          type,
+          color
+        };
+      },
+    }),
   }
 </script>
 
 <style lang="scss" scoped>
+  .root {
+    &.float {
+    }
+    &.static {
+    }
+  }
   .view-enter-active {
     animation: view-in .5s;
   }

@@ -1,25 +1,28 @@
 <template>
   <section id="rootTimeline">
-    <v-timeline :dense="$vuetify.breakpoint.smAndDown">
-      <v-timeline-item color="grey lighten-1" small v-for="(resume, index) in list" :key="`tab${index}`">
-        <v-card class="card" :class="{'show': show}">
-          <v-card-title class="lighten-2" :class="resume.color">
-            <v-icon dark size="28" class="mr-4">
-              {{resume.icon}}
-            </v-icon>
-            <h3 class="white--text font-weight-light">{{resume.name}}</h3>
-            <h5 class="white--text font-weight-light" style="position:absolute;right:0;top:0;padding:.25rem;font-size:.75rem;line-height:.75rem;">{{resume.from}} ~ {{resume.to? resume.to: "working"}}</h5>
-          </v-card-title>
-          <v-container>
-            <v-row>
-              <v-col cols="12" md="10">
-                {{show}}
-              </v-col>
-            </v-row>
-          </v-container>
-        </v-card>
-      </v-timeline-item>
-    </v-timeline>
+    <h2 class="titleSection">Experiences</h2>
+    <div class="contents">
+      <v-timeline :dense="$vuetify.breakpoint.smAndDown">
+        <v-timeline-item color="grey lighten-1" small v-for="(resume, index) in list" :key="`tab${index}`">
+          <v-card class="card" :class="{'show': show}">
+            <v-card-title class="lighten-2" :class="resume.color">
+              <v-icon dark size="28" class="mr-4">
+                {{resume.icon}}
+              </v-icon>
+              <h3 class="white--text font-weight-light">{{resume.name}}</h3>
+              <h5 class="white--text font-weight-light" style="position:absolute;right:0;top:0;padding:.25rem;font-size:.75rem;line-height:.75rem;">{{resume.from}} ~ {{resume.to? resume.to: "working"}}</h5>
+            </v-card-title>
+            <v-container>
+              <v-row>
+                <v-col cols="12" md="10">
+                  {{show}}
+                </v-col>
+              </v-row>
+            </v-container>
+          </v-card>
+        </v-timeline-item>
+      </v-timeline>
+    </div>
   </section>
 </template>
 
@@ -88,38 +91,9 @@
 </script>
 
 <style scoped lang="scss">
-  #rootTimeline .card:not(.show) {
-    opacity: 0;
-  }
-  #rootTimeline .card.show {
-    -webkit-animation: tilt-in-fwd-bl .8s cubic-bezier(.250, .460, .450, .940) both;
-    animation: tilt-in-fwd-bl .8s cubic-bezier(.250, .460, .450, .940) both;
-    display: block;
-  }
-  
-  @-webkit-keyframes tilt-in-fwd-bl {
-    0% {
-      -webkit-transform: rotateY(-20deg) rotateX(-35deg) translate(300px, 0) skew(-35deg, 10deg);
-      transform: rotateY(-20deg) rotateX(-35deg) translate(300px, 0) skew(-35deg, 10deg);
-      opacity: 0;
-    }
-    100% {
-      -webkit-transform: rotateY(0) rotateX(0deg) translate(0, 0) skew(0deg, 0deg);
-      transform: rotateY(0) rotateX(0deg) translate(0, 0) skew(0deg, 0deg);
-      opacity: 1;
-    }
-  }
-  
-  @keyframes tilt-in-fwd-bl {
-    0% {
-      -webkit-transform: rotateY(-20deg) rotateX(-35deg) translate(300px, 0) skew(-35deg, 10deg);
-      transform: rotateY(-20deg) rotateX(-35deg) translate(300px, 0) skew(-35deg, 10deg);
-      opacity: 0;
-    }
-    100% {
-      -webkit-transform: rotateY(0) rotateX(0deg) translate(0, 0) skew(0deg, 0deg);
-      transform: rotateY(0) rotateX(0deg) translate(0, 0) skew(0deg, 0deg);
-      opacity: 1;
-    }
+  #rootTimeline {
+    width: 90vw;
+    margin: auto;
+    position: relative;
   }
 </style>

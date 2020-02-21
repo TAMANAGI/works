@@ -1,9 +1,7 @@
 <template>
-  <div id="home">
-    <Preferences/>
-    <Navigator/>
+  <div id="home" class="view-root" :class="[data.type, data.color]">
     <div class="topview">
-      <v-img class="logo" src="../assets/images/logo.png" />
+      <v-img class="logo" src="@/assets/images/logo.png" />
     </div>
   </div>
 </template>
@@ -11,49 +9,37 @@
 <script>
   import {
     mapState
-  } from "vuex";
-  import Preferences from "../components/Preferences.vue";
-  import Navigator from "../components/Navigator.vue"
+  } from 'vuex';
   
   export default {
     namespaced: true,
     created() {
-      // this.$store.commit("expand");
+      this.$store.commit("common/setPreferences", true);
     },
-    mounted() {
-      if (this.onScroll) {
-        window.addEventListener('scroll', this.onScroll)
-      }
-    },
-    destroyed() {
-      if (this.onScroll) {
-        window.removeEventListener('scroll', this.onScroll);
-      }
+    mounted () {
+      setTimeout(() => {
+        this.$store.commit("common/setNavigator", false);        
+      }, 100);
     },
     methods: {
-      onScroll() {
-        this.$store.commit("common/setPositionY", window.scrollY);
-      },
     },
     computed: mapState({
-      currentPosition: (state) => {
+      data: (state) => {
         const {
-          position,
-        } = state.common;
+          type,
+          color
+        } = state.common.header;
         return {
-          y: position.y,
+          type,
+          color
         };
       },
-    }),
-    components: {
-      Preferences,
-      Navigator
-    },
+    })
   }
 </script>
 
 <style lang="scss" scoped>
-  #home {
+  .view-root {
     box-sizing: border-box;
     overflow-y: scroll;
     width: 100%;
@@ -61,11 +47,23 @@
   
   .topview {
     position: relative;
-    min-height: 100vh;
     width: 100%;
     background-size: cover;
     background-position: center center;
     background-image: url("../assets/images/home.jpg");
+  }
+
+  .float > .topview {
+    min-height: 100vh;
+  }
+
+  .static > .topview {
+    @include tab {
+      min-height: calc(100vh - 3.5rem - 32px);
+    }
+    @include sp {
+      min-height: calc(100vh - 3.5rem - 80px);
+    }
   }
   
   .logo {

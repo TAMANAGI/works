@@ -3,25 +3,50 @@ export default {
   state: {
     header: {
       type: "float",
+      color: "dark"
     },
     navigator: {
       open: false,
+      links: [{
+          type: "item",
+          title: "Home",
+          url: "/",
+        },
+        {
+          type: "item",
+          title: "Profile",
+          url: "/profile",
+        },
+        {
+          type: "list",
+          title: "Unity",
+          children: [{
+              title: "3D Ball",
+              url: "/unity/ball",
+            },
+            {
+              title: "3D Avatar",
+              url: "/unity/avatar",
+            }
+          ],
+        },
+      ]
     },
-    position: {
-      y: 0,
-    }
+    preferences: {
+      open: false,
+    },
   },
   mutations: {
-    setNavigator(state, open) {
-      state.navigator = {
-        ...state.navigator.open,
-        open: open
+    setPreferences(state, show) {
+      state.preferences = {
+        ...state.preferences,
+        show: show
       }
     },
-    setPositionY(state, y) {
-      state.position = {
-        ...state.position,
-        y: y
+    setNavigator(state, open) {
+      state.navigator = {
+        ...state.navigator,
+        open: open
       }
     },
     setHeaderType(state, type) {

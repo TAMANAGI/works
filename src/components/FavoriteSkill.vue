@@ -30,13 +30,14 @@
     data() {
       const option = {
         backgroundColor: "transparent",
+        legend: {textStyle: {color: '#fcfcfc', fontSize: 16}},
         chartArea: {
           left: 10,
           top: 10,
           width: '100%',
           height: '100%'
         },
-        is3D: true,
+        is3D: false,
       };
   
       return {
@@ -82,6 +83,10 @@
   
   .rootChart {
     width: 33%;
+
+    & text {
+      font-size: 1rem;
+    }
     @include sp {
       width: 100%;
     }

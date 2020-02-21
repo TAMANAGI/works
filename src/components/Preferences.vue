@@ -1,9 +1,10 @@
 <template>
-  <section class="root">
-    <v-icon class="icon" size="24" color="white" @click="toggleMenu">mdi-settings-outline</v-icon>
+  <section class="root"  :class="{hide:!data.show}">
+    <v-icon class="icon" size="36" color="white" @click="toggleMenu">mdi-settings-outline</v-icon>
     <div class="menu" :class="{open:openMenu}">
       <div class="header">
-        <p class="title">thema customizer</p>
+        <p class="title">Preferences</p>
+        <v-icon class="icon retrun" size="36" @click="toggleMenu">mdi-window-close</v-icon>
       </div>
       <div class="main">
         <article>
@@ -19,7 +20,6 @@
         </article>
       </div>
     </div>
-    <div class="background" :class="{open:openMenu}" @click="toggleMenu"></div>
   </section>
 </template>
 
@@ -49,9 +49,13 @@
           type,
           color
         } = state.common.header;
+        const {
+          show
+        } = state.common.preferences;
         return {
           type,
-          color
+          color,
+          show
         };
       },
     }),
@@ -64,16 +68,19 @@
     background-color: #10163a;
     border-radius: .5rem 0 0 .5rem;
     display: flex;
-    height: 2rem;
+    height: 3rem;
     justify-content: center;
     position: fixed;
     right: 0;
-    top: 50%;
-    width: 2rem;
+    top: 75%;
+    width: 3rem;
     z-index: 10;
-    & .icon {
+    &>.icon {
       animation: 4s linear infinite rotateIcon;
       -webkit-animation: 4s linear infinite rotateIcon;
+    }
+    &.hide {
+      display: none;
     }
   }
   
@@ -81,15 +88,13 @@
     // background-color: #342d4a;
     height: 100%;
     position: fixed;
-    right: 0;
     top: 0;
     width: 80%;
     right: -100%;
-    transition: right 1s;
+    transition: right .8s;
     border-radius: .5rem;
-    opacity: 0.9;
+    opacity: .9;
     z-index: 101;
-
     @include pc {
       width: 25%;
     }
@@ -99,11 +104,11 @@
     @include sp {
       width: 100%;
     }
-
     &.open {
       right: 0;
     }
     & .header {
+      display: flex;
       height: 3.5rem;
       width: 100%;
       border-bottom: 1px solid #fcfcfc75;
@@ -112,6 +117,10 @@
         line-height: 3.5rem;
         font-size: 1.8rem !important;
         margin-bottom: 0;
+        width: 90%;
+      }
+      &>.retrun {
+        width: 10%;
       }
     }
     & .main {
@@ -125,6 +134,7 @@
         width: 100%;
         &+article {
           margin-top: 1rem;
+          font-size: 1.5rem;
           &::before {
             content: "";
             position: absolute;
@@ -141,38 +151,22 @@
       }
     }
   }
-
+  
   .theme--dark {
     .header {
       background: #000000;
     }
-
-    .background {
-      background: #4caf5040;
+    .main {
+      background: #044286ed;
     }
   }
-
+  
   .theme--light {
     .header {
       background: #ffffff;
     }
-    .background {
-      background: #00f0ff2b;
-    }
-  }
-
-  .background {
-
-    display: none;
-    height: 100%;
-    left: 0;
-    top: 0;
-    width: 100%;
-    z-index: 100;
-    &.open {
-      position: fixed;
-      display: unset;
-      cursor: pointer;
+    .main {
+      background: #d3ffe5ed;
     }
   }
   
