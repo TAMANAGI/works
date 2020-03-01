@@ -27,15 +27,10 @@ const routes = [{
     component: loadView("Profile")
   },
   {
-    path: "/unity/avatar",
-    name: "Unity Avatar",
-    component: loadView("UnityAvatar")
-  },
-  {
-    path: "/unity/ball",
-    name: "Unity Ball",
-    component: loadView("UnityBall")
-  },
+    path: "/unity/app/1",
+    name: "1stApp",
+    component: loadView("Unity1stApp")
+  }
 ];
 
 const router = new VueRouter({

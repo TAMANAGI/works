@@ -21,12 +21,8 @@ export default {
           type: "list",
           title: "Unity",
           children: [{
-              title: "3D Ball",
-              url: "/unity/ball",
-            },
-            {
-              title: "3D Avatar",
-              url: "/unity/avatar",
+            title: "1st App(BounceBall)",
+            url: "/unity/app/1",
             }
           ],
         },

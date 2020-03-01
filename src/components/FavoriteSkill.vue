@@ -4,6 +4,10 @@
     <v-container>
       <v-layout wrap>
         <v-flex class="rootChart">
+          <h4>2020</h4>
+          <GChart type="PieChart" :data="data2020.chartData" :options="data2019.chartOptions" />
+        </v-flex>
+        <v-flex class="rootChart">
           <h4>2019</h4>
           <GChart type="PieChart" :data="data2019.chartData" :options="data2019.chartOptions" />
         </v-flex>
@@ -41,11 +45,22 @@
       };
   
       return {
+        data2020: {
+          chartData: [
+            ['name', 'rate'],
+            ["Vue", 60],
+            ["Unity", 20],
+            ["C#", 10],
+            ["MAYA", 10],
+          ],
+          chartOptions: Object.assign({}, option)
+        },
         data2019: {
           chartData: [
             ['name', 'rate'],
-            ["Vue", 75],
-            ["tensorflow", 15],
+            ["Vue", 65],
+            ["jQuery", 20],
+            ["tensorflow", 5],
             ["React", 10]
           ],
           chartOptions: Object.assign({}, option)

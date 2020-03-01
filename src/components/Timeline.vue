@@ -76,7 +76,7 @@
             color: "blue",
             from: "2019/12",
             to: "",
-            name: "[ERP] ERP-AI System",
+            name: "[XXXX] XXXX",
             user: "Aflac",
             role: "Frontend",
             skill: ["html", "css", "Vue", "Vuex", "Vuetify", "scss", "GitHub", "JIRA", "Confluence"]

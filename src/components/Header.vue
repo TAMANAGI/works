@@ -60,7 +60,6 @@
     height: 4rem;
     width: 4rem;
     @include tab {
-      flex-direction: column;
       & *:first-of-type {
         font-size: 2rem !important;
       }

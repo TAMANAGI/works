@@ -71,7 +71,7 @@
             type: "profile",
             name: "Daisuke Fujisawa",
             birthday: "1982.02.13",
-            greeting: "I worked with the cool people at infoactive as well as many other awesome open source contributors.I assisted with the initial research and planning as well as helped on the development of the online interactive version"
+            greeting: "うんたらかんたら・・・"
           },
           {
             key: "Skill",
@@ -111,6 +111,7 @@
               {
                 category: "Other",
                 list: [
+                  "Unity",
                   "JIRA",
                   "Git",
                   "Git Hub",

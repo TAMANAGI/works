@@ -5,10 +5,8 @@ import router from "./router";
 import store from "./store";
 import 'babel-polyfill';
 import vuetify from "./plugins/vuetify";
-import mixinGlobal from './mixins/Global';
 
 Vue.config.productionTip = false;
-Vue.mixin(mixinGlobal);
 require("@/assets/styles/_variables.scss");
 
 new Vue({

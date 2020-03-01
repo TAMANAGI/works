@@ -18,7 +18,9 @@
     },
     mounted () {
       setTimeout(() => {
-        this.$store.commit("common/setNavigator", false);        
+        this.$store.commit("common/setNavigator", false);
+        var msg = new SpeechSynthesisUtterance('Welcome');
+        window.speechSynthesis.speak(msg);
       }, 100);
     },
     methods: {

@@ -21,7 +21,7 @@
     },
     mounted () {
       setTimeout(() => {
-        this.$store.commit("common/setNavigator", false);        
+        this.$store.commit("common/setNavigator", false);
       }, 100);
     },
     computed: mapState({
